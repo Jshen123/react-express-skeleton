@@ -40,7 +40,6 @@ class Login extends Component {
 
     render() {
         const { classes } = this.props;
-        const bull = <span className={classes.bullet}>•</span>;
 
         return (
         <Grid container alignItems='center' direction='row' justify='center'>
