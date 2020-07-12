@@ -1,21 +1,23 @@
-import Auth from '../models/AuthModel'
+import User from '../models/UserModel'
 
 export default class AuthController {
+    async login(req, res) {
+        try {
+            const username = req.body.username;
+            const password = req.body.password;
 
-    login(req, res) {
-        const username = req.body.username;
-        
-        Auth().authenticate(username, (value) => {
-            if (value.length != 0) {
-                // Valid login
-                console.log('Success')
-                return res.redirect('/');
-              } else {
-                // Incorrect password
-                console.log('Fail')
-                return res.redirect('/login');
+            const user = await User.query()
+                            .where('username', username)
+                            .where('password', password)
+
+            if(user.length > 0) { 
+                res.json(user[0]) 
+            } else {
+                res.sendStatus(403)
             }
-        })
+        } catch(err) {
+            res.sendStatus(400)
+        }
     }
 }
 
