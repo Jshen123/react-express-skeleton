@@ -17,9 +17,4 @@ module.exports = {
       },
     ],
   }
-  // resolve: {
-  //   alias: {
-  //     Style: path.resolve(__dirname, 'public/style/')
-  //   }
-  // }
 };

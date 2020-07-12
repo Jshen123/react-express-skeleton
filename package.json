@@ -1,38 +1,48 @@
 {
-    "name": "react-express",
-    "version": "1.0.0",
-    "private": true,
-    "dependencies": {
-        "@babel/core": "latest",
-        "@babel/node": "latest",
-        "@babel/plugin-proposal-class-properties": "latest",
-        "@babel/preset-env": "latest",
-        "@babel/preset-react": "latest",
-        "@material-ui/core": "latest",
-        "axios": "^0.19.1",
-        "babel-loader": "latest",
-        "body-parser": "^1.19.0",
-        "cross-env": "latest",
-        "dotenv": "^8.2.0",
-        "express": "latest",
-        "knex": "^0.20.7",
-        "nodemon": "latest",
-        "npm-run-all": "latest",
-        "pg": "^7.17.0",
-        "react": "latest",
-        "react-dom": "latest",
-        "react-router-dom": "^5.1.2",
-        "webpack": "latest",
-        "webpack-cli": "latest"
-    },
-    "scripts": {
-        "start": "webpack -w & nodemon --exec yarn babel-node -- server.js",
-        "build": "webpack -w",
-        "serve": "nodemon --ignore ./build --exec babel-node -- server.js",
-        "production": "cross-env NODE_ENV=production npm start"
-    },
-    "devDependencies": {
-        "eslint": "^6.8.0",
-        "eslint-plugin-react": "^7.17.0"
-    }
+	"name": "ssr",
+	"version": "1.0.0",
+	"private": true,
+	"dependencies": {
+		"@babel/core": "latest",
+		"@babel/node": "latest",
+		"@babel/plugin-proposal-class-properties": "latest",
+		"@babel/preset-env": "latest",
+		"@babel/preset-react": "latest",
+		"@material-ui/core": "latest",
+		"@material-ui/icons": "latest",
+		"axios": "latest",
+		"babel-loader": "latest",
+		"bcrypt": "latest",
+		"cors": "latest",
+		"cross-env": "latest",
+		"dotenv": "latest",
+		"express": "latest",
+		"express-session": "latest",
+		"express-validator": "latest",
+		"jsonwebtoken": "latest",
+		"knex": "latest",
+		"objection": "latest",
+		"passport": "latest",
+		"passport-jwt": "latest",
+		"passport-local": "latest",
+		"pg": "latest",
+		"react": "latest",
+		"react-dom": "latest",
+		"react-router": "latest",
+		"react-router-dom": "latest",
+		"webpack-cli": "latest"
+	},
+	"scripts": {
+        "start": "npm-run-all -p build serve",
+        "devstart": "npm-run-all -p devbuild serve",
+        "build": "webpack",
+        "devbuild": "webpack -w",
+		"serve": "nodemon --ignore ./build --exec babel-node -- server.js",
+		"post-update": "echo \"codesandbox preview only, need an update\" && yarn upgrade --latest"
+	},
+	"devDependencies": {
+		"nodemon": "latest",
+		"npm-run-all": "latest",
+		"webpack": "latest"
+	}
 }
