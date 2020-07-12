@@ -1,7 +1,6 @@
 "use strict";
 
 import {} from 'dotenv/config'
-
 import express from 'express';
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
@@ -10,17 +9,7 @@ import { ServerStyleSheets, ThemeProvider } from '@material-ui/core/styles';
 import {StaticRouter} from 'react-router-dom'
 import App from './src/views/App';
 import theme from './public/style/theme';
-
-//environment
-const ENV = process.env.ENV || "development";
-
-//middleware
 import bodyParser from "body-parser";
-
-//database
-import knexConfig from "./knexfile";
-import knex from "knex";
-knex(knexConfig[ENV])
 
 function renderFullPage(html, css) {
     return `
@@ -73,9 +62,6 @@ app.use('/build', express.static('build'));
 // Body Parser
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
-// routing
-// app.get("/", (req, res) => res.render("index"));
 
 // auth route
 import auth from "./src/routes/auth"
