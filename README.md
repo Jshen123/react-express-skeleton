@@ -1,21 +1,36 @@
-# Server Rendering example
+### Overview
 
-## How to use
+This is the Portflio Tracker app project. 
 
-Download the example [or clone the repo](https://github.com/mui-org/material-ui):
+### Setup
 
-```sh
-curl https://codeload.github.com/mui-org/material-ui/tar.gz/master | tar -xz --strip=2  material-ui-master/examples/ssr
-cd ssr
-```
+Please install the following global dependencies, if not installed:
 
-Install it and run:
+    sudo apt-get install postgresql
+    sudo npm install knex -g
 
-```sh
-npm install
-npm run start
-```
+setup postgres:
 
-## The idea behind the example
+    sudo -u postgres psql
 
-This is the reference implementation of the [Server Rendering tutorial](https://material-ui.com/guides/server-rendering/).
+setup database:
+
+    CREATE USER dev WITH PASSWORD 'dev';
+    CREATE DATABASE portfolio_tracker_dev;
+    ALTER DATABASE portfolio_tracker_dev OWNER TO dev;
+
+install packages:
+
+    sudo npm install
+
+build database: 
+
+    sudo knex migrate:rollback
+    sudo knex migrate:latest
+    sudo knex seed:run
+
+run server:
+
+    sudo npm start
+    http://localhost:3000/
+
